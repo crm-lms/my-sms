@@ -9,7 +9,7 @@ import SendMessage from "./Components/SendMessage";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <BrowserRouter>
+  <BrowserRouter basename='my-sms'>
       <Routes>
           <Route index element={<App />} />
           <Route path="SendMessage" element={<SendMessage />} />
