@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-sms/static/css/main.a9d861e6.css",
-    "main.js": "/my-sms/static/js/main.b07146f7.js",
+    "main.js": "/my-sms/static/js/main.fbb48dd1.js",
     "static/js/787.abd1891b.chunk.js": "/my-sms/static/js/787.abd1891b.chunk.js",
     "static/media/fontawesome-webfont3e6e.svg?v=4.7.0": "/my-sms/static/media/fontawesome-webfont3e6e.c1e38fd9e0e74ba58f7a.svg",
     "static/media/Montserrat-Regular.ttf": "/my-sms/static/media/Montserrat-Regular.2a2d37bf7680d86811db.ttf",
@@ -20,11 +20,11 @@
     "static/media/bg-02.jpg": "/my-sms/static/media/bg-02.c81770366307f0079a00.jpg",
     "index.html": "/my-sms/index.html",
     "main.a9d861e6.css.map": "/my-sms/static/css/main.a9d861e6.css.map",
-    "main.b07146f7.js.map": "/my-sms/static/js/main.b07146f7.js.map",
+    "main.fbb48dd1.js.map": "/my-sms/static/js/main.fbb48dd1.js.map",
     "787.abd1891b.chunk.js.map": "/my-sms/static/js/787.abd1891b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a9d861e6.css",
-    "static/js/main.b07146f7.js"
+    "static/js/main.fbb48dd1.js"
   ]
 }
