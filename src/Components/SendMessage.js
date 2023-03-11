@@ -13,10 +13,8 @@ import { read, utils, writeFile } from 'xlsx'; //npm i xlsx
 import Swal from "sweetalert2"; //npm install --save sweetalert2
 
 function App() {
-    //const [To, setTo] = useState("");
     const [From, setFrom] = useState("");
     const [messageSend, setMessageSend] = useState("");
-    //const [messageAlert, setMessageAlert] = useState("");
     const [movies, setMovies] = useState([]);
     const [uploadAlert, setuploadAlert] = useState("");
     //const [CheckBox, setCheckBox] = useState(true);
@@ -36,7 +34,7 @@ function App() {
                         'Congrats!',
                         'File uploaded successfully!',
                         'success'
-                      )
+                    )
                     setuploadAlert("File uploaded successfully");
                     localStorage.setItem('FileData', JSON.stringify(rows));
                     $('.uploadAlert').addClass('uploadAlert1');
@@ -58,7 +56,15 @@ function App() {
         }
     }
 
-    let checkValid = ()=>{
+    let HideMsgPopup = () => {
+        $('.container-contact100').fadeOut(300);
+    }
+
+    let ShowMsgPopup = () => {
+        $('.container-contact100').fadeIn(300);
+    }
+
+    let checkValid = () => {
         $('.validate-input .input100').each(
             function () {
                 $(this).on('blur', function () {
@@ -118,15 +124,9 @@ function App() {
             $(thisAlert).find('.btn-hide-validate').remove();
         }
 
-        $('.btn-hide-contact100').on('click', function () {
-            $('.container-contact100').fadeOut(300);
-        });
 
-        $('.btn-show-contact100').on('click', function () {
-            $('.container-contact100').fadeIn(300);
-        });
     }
-
+    
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -144,14 +144,13 @@ function App() {
                 let res = fetch(url + to + from + message, { method: "POST" });
                 let resJson = res.json();
                 if (res.status === 200 && resJson != null) {
-                    //setTo("");
                     setFrom("");
                     setMessageSend("");
                     Swal.fire(
                         'Congrats!',
                         'Send messages successfully!',
                         'success'
-                      )
+                    )
                     localStorage.clear();
                 } else {
                     Swal.fire({
@@ -177,10 +176,10 @@ function App() {
             <div className="bg-container-contact100" style={{ backgroundImage: 'url(' + img1 + ')' }}>
                 <div className="contact100-header flex-sb-m">
                     <a href="#" className="contact100-header-logo">
-                        <img src="images/icons/logo.png" alt="LOGO"></img>
+                        <img src="https://icons.iconarchive.com/icons/fa-team/fontawesome/128/FontAwesome-Comment-Sms-icon.png" alt="LOGO"></img>
                     </a>
                     <div>
-                        <button className="btn-show-contact100">
+                        <button className="btn-show-contact100" onClick={ShowMsgPopup}>
                             Send Message
                         </button>
                     </div>
@@ -188,7 +187,7 @@ function App() {
             </div>
             <div className="container-contact100">
                 <div className="wrap-contact100">
-                    <button className="btn-hide-contact100">
+                    <button className="btn-hide-contact100" onClick={HideMsgPopup}>
                         <i className="zmdi zmdi-close"></i>
                     </button>
                     <div className="contact100-form-title" style={{ backgroundImage: 'url(' + img2 + ')' }}>
