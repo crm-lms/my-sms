@@ -180,7 +180,7 @@ function App() {
                     </a>
                     <div>
                         <button className="btn-show-contact100" onClick={ShowMsgPopup}>
-                            Send Message
+                        <span className="lnr lnr-location mr-2"></span> Send Message
                         </button>
                     </div>
                 </div>
