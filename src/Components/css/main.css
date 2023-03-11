@@ -225,7 +225,7 @@ iframe {
 }
 
 .container-contact100 {
-    width: 100%;
+    /* width: 100%; */
     min-height: 100vh;
     display: -webkit-box;
     display: -webkit-flex;
@@ -236,7 +236,7 @@ iframe {
     justify-content: center;
     align-items: center;
     /* padding: 15px; */
-    padding: 1.4em;
+    padding: 0.5em;
     background: rgba(132, 106, 221, .8);
     position: relative;
     z-index: 10
@@ -552,7 +552,8 @@ textarea.input100 {
 
 .uploadAlert {
     color: #ccc;
-    margin-top: -2em;
+    margin-top: -2.4em;
+    margin-bottom: 0.8em;
 }
 
 .check {
