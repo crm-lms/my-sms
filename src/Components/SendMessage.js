@@ -51,7 +51,7 @@ function App() {
 
             localStorage.setItem('FileData', null);
             $('.swal2-actions').hide();
-            setTimeout(() => { window.location.reload(); }, 3000);
+            setTimeout(() => { window.location.reload(); }, 2000);
         }
     }
 
@@ -122,8 +122,6 @@ function App() {
             $(thisAlert).removeClass('alert-validate');
             $(thisAlert).find('.btn-hide-validate').remove();
         }
-
-
     }
     
     let handleSubmit = async (e) => {
