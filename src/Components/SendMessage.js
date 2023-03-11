@@ -200,7 +200,7 @@ function App() {
                             </label>
                         </div>                         */}
                         <div className="wrap-input100 validate-input">
-                            <input type="text" id="FromPhone" className="input100" pattern="[0-9]*" maxLength={10} name="FromPhone" placeholder="From Auto Register Number" value={From} onChange={(e) => setFrom(e.target.value)} autoComplete="off"></input>
+                            <input type="text" id="FromPhone" className="input100" pattern="[0-9]*" maxLength={10} name="FromPhone" placeholder="Enter Auto Register Number" value={From} onChange={(e) => setFrom(e.target.value)} autoComplete="off"></input>
                             <span className="focus-input100"></span>
                             <label className="label-input100" for="phone">
                                 <span className="lnr lnr-smartphone m-b-2"></span>
