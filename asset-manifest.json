@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/my-sms/static/css/main.a7551862.css",
+    "main.js": "/my-sms/static/js/main.f302632a.js",
+    "static/js/787.abd1891b.chunk.js": "/my-sms/static/js/787.abd1891b.chunk.js",
+    "static/media/fontawesome-webfont3e6e.svg?v=4.7.0": "/my-sms/static/media/fontawesome-webfont3e6e.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/Montserrat-Regular.ttf": "/my-sms/static/media/Montserrat-Regular.2a2d37bf7680d86811db.ttf",
+    "static/media/Montserrat-Bold.ttf": "/my-sms/static/media/Montserrat-Bold.0915f0a8c3367a6d05ec.ttf",
+    "static/media/Montserrat-SemiBold.ttf": "/my-sms/static/media/Montserrat-SemiBold.2f7a846126c7d5ee9163.ttf",
+    "static/media/fontawesome-webfont3e6e.eot?v=4.7.0": "/my-sms/static/media/fontawesome-webfont3e6e.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfontd41d.eot": "/my-sms/static/media/fontawesome-webfontd41d.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont3e6e.ttf?v=4.7.0": "/my-sms/static/media/fontawesome-webfont3e6e.1e59d2330b4c6deb84b3.ttf",
+    "static/media/bg-01.jpg": "/my-sms/static/media/bg-01.4d939e1ff8e692fcfa58.jpg",
+    "static/media/Material-Design-Iconic-Fontd1f1.ttf?v=2.2.0": "/my-sms/static/media/Material-Design-Iconic-Fontd1f1.5a588d6a8bfc41d69f88.ttf",
+    "static/media/fontawesome-webfont3e6e.woff?v=4.7.0": "/my-sms/static/media/fontawesome-webfont3e6e.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont3e6e.woff2?v=4.7.0": "/my-sms/static/media/fontawesome-webfont3e6e.20fd1704ea223900efa9.woff2",
+    "static/media/Material-Design-Iconic-Fontd1f1.woff?v=2.2.0": "/my-sms/static/media/Material-Design-Iconic-Fontd1f1.bd9b02bf1131d90bfe22.woff",
+    "static/media/Material-Design-Iconic-Fontd1f1.woff2?v=2.2.0": "/my-sms/static/media/Material-Design-Iconic-Fontd1f1.6ee80f4bf5d3f92f3bf7.woff2",
+    "static/media/favicon.ico": "/my-sms/static/media/favicon.6599c5b76058a7bbfdd5.ico",
+    "static/media/bg-02.jpg": "/my-sms/static/media/bg-02.c81770366307f0079a00.jpg",
+    "index.html": "/my-sms/index.html",
+    "main.a7551862.css.map": "/my-sms/static/css/main.a7551862.css.map",
+    "main.f302632a.js.map": "/my-sms/static/js/main.f302632a.js.map",
+    "787.abd1891b.chunk.js.map": "/my-sms/static/js/787.abd1891b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7551862.css",
+    "static/js/main.f302632a.js"
+  ]
+}
