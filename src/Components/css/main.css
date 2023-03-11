@@ -615,9 +615,9 @@ input[type="checkbox"]::before {
         margin-right: 8em;
     }
   }
-  
+/*   
   @media (max-width: 1199.98px) {
     .uploadAlert {
-        margin-right: 3em;
+        margin-right: 0em;
     }
-  }
+  } */
