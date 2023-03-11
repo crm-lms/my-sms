@@ -10,19 +10,20 @@ import img1 from "./images/bg-01.jpg";
 import img2 from "./images/bg-02.jpg";
 import $ from "jquery";
 import { read, utils, writeFile } from 'xlsx'; //npm i xlsx
+import Swal from "sweetalert2"; //npm install --save sweetalert2
 
 function App() {
     //const [To, setTo] = useState("");
     const [From, setFrom] = useState("");
     const [messageSend, setMessageSend] = useState("");
-    const [messageAlert, setMessageAlert] = useState("");
+    //const [messageAlert, setMessageAlert] = useState("");
     const [movies, setMovies] = useState([]);
     const [uploadAlert, setuploadAlert] = useState("");
-    const [CheckBox, setCheckBox] = useState(true);
+    //const [CheckBox, setCheckBox] = useState(true);
     const handleImport = ($event) => {
         const files = $event.target.files;
         const extension = files[0].name.split('.').pop();
-        if (files.length && extension === "xls" && extension === "xlsx" && extension === "csv") {
+        if (files.length && (extension === "xls" || extension === "xlsx" || extension === "csv")) {
             const file = files[0];
             const reader = new FileReader();
             reader.onload = (event) => {
@@ -31,14 +32,29 @@ function App() {
                 if (sheets.length) {
                     const rows = utils.sheet_to_json(wb.Sheets[sheets[0]]);
                     setMovies(rows);
+                    Swal.fire(
+                        'Congrats!',
+                        'File uploaded successfully!',
+                        'success'
+                      )
                     setuploadAlert("File uploaded successfully");
                     localStorage.setItem('FileData', JSON.stringify(rows));
+                    $('.uploadAlert').addClass('uploadAlert1');
                 }
             }
             reader.readAsArrayBuffer(file);
         }
         else {
-            setuploadAlert("Invalid file uploaded");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'You have invalid file uploaded!',
+                footer: 'Please upload xlsx, xls or csv file.'
+            })
+
+            localStorage.setItem('FileData', null);
+            $('.swal2-actions').hide();
+            setTimeout(() => { window.location.reload(); }, 3000);
         }
     }
 
@@ -83,7 +99,6 @@ function App() {
         }
 
         function showValidate(input) {
-            debugger
             var thisAlert = $(input).parent();
 
             $(thisAlert).addClass('alert-validate');
@@ -120,7 +135,6 @@ function App() {
                 checkValid();
             }
             else {
-                debugger
                 const numbers = [];
                 FileData.forEach((data) => { numbers.push(data.Number); })
                 let url = "http://localhost:5098/api/Sms/SendSms?";
@@ -133,10 +147,19 @@ function App() {
                     //setTo("");
                     setFrom("");
                     setMessageSend("");
-                    setMessageAlert("Send Message successfully");
+                    Swal.fire(
+                        'Congrats!',
+                        'Send messages successfully!',
+                        'success'
+                      )
                     localStorage.clear();
                 } else {
-                    setMessageAlert("Not Send Successfully!");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Not send!',
+                        footer: 'Please try again.'
+                    })
                 }
             }
         } catch (err) {
@@ -144,10 +167,10 @@ function App() {
         }
     };
 
-    const CheckBoxChange = () =>{
-        setCheckBox(false);
-        alert(CheckBox);
-    }
+    // const CheckBoxChange = () =>{
+    //     setCheckBox(false);
+    //     alert(CheckBox);
+    // }
 
     return (
         <div className="App">
@@ -172,14 +195,14 @@ function App() {
                         <span>Send Message</span>
                     </div>
                     <form onSubmit={handleSubmit} className="contact100-form validate-form">
-                        <div className="checkInput">
+                        {/* <div className="checkInput">
                             <label class="form-control-126">
                                 <input type="checkbox" name="checkbox-checkmark" value={CheckBox} onChange={CheckBoxChange}/>
                                 Click To Send Bulk Sms
                             </label>
-                        </div>                        
+                        </div>                         */}
                         <div className="wrap-input100 validate-input">
-                            <input type="text" id="FromPhone" className="input100" pattern="[0-9]*" maxLength={10} name="FromPhone" placeholder="From Auto Register Number" value={From} onChange={(e) => setFrom(e.target.value)}></input>
+                            <input type="text" id="FromPhone" className="input100" pattern="[0-9]*" maxLength={10} name="FromPhone" placeholder="From Auto Register Number" value={From} onChange={(e) => setFrom(e.target.value)} autoComplete="off"></input>
                             <span className="focus-input100"></span>
                             <label className="label-input100" for="phone">
                                 <span className="lnr lnr-smartphone m-b-2"></span>
@@ -199,7 +222,7 @@ function App() {
                             <label className="custom-file-label label-input100" for="message" htmlFor="inputGroupFile">
                                 <span className="lnr lnr-upload"></span>
                             </label>
-                            <label className="uploadAlert">{uploadAlert}</label>
+                            <label className="uploadAlert">{uploadAlert ? uploadAlert : 'Please Select xls, xlsx or csv file'}</label>
                         </div>
                         <div className="wrap-input100 validate-input">
                             <textarea type="textarea" id="message" className="input100 textarea" name="message" placeholder="Your message..." value={messageSend} onChange={(e) => setMessageSend(e.target.value)}></textarea>
