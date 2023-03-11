@@ -222,7 +222,7 @@ function App() {
                             <label className="custom-file-label label-input100" for="message" htmlFor="inputGroupFile">
                                 <span className="lnr lnr-upload"></span>
                             </label>
-                            <label className="uploadAlert">{uploadAlert ? uploadAlert : 'Please Select xls, xlsx or csv file'}</label>
+                            <label className="uploadAlert">{uploadAlert ? uploadAlert : 'Select xls, xlsx or csv file'}</label>
                         </div>
                         <div className="wrap-input100 validate-input">
                             <textarea type="textarea" id="message" className="input100 textarea" name="message" placeholder="Your message..." value={messageSend} onChange={(e) => setMessageSend(e.target.value)}></textarea>
