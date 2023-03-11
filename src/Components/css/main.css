@@ -612,12 +612,12 @@ input[type="checkbox"]::before {
 
 @media (min-width: 1200px) {
     .uploadAlert {
-        margin-right: 5.4em;
+        margin-right: 8em;
     }
   }
   
   @media (max-width: 1199.98px) {
     .uploadAlert {
-        margin-right: 0.9em;
+        margin-right: 4em;
     }
   }
