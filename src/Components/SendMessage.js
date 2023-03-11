@@ -212,8 +212,7 @@ function App() {
                             </label>
                         </div> */}
                         <div className="wrap-input100 validate-input">
-                            <input type="file" name="file" className="custom-file-input input100" id="inputGroupFile" onChange={handleImport}
-                                accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"></input>
+                            <input type="file" name="file" className="custom-file-input input100" id="inputGroupFile" onChange={handleImport}></input>
                             <span className="focus-input100"></span>
                             <label className="custom-file-label label-input100" for="message" htmlFor="inputGroupFile">
                                 <span className="lnr lnr-upload"></span>
