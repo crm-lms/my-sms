@@ -191,7 +191,7 @@ function App() {
                         <i className="zmdi zmdi-close"></i>
                     </button>
                     <div className="contact100-form-title" style={{ backgroundImage: 'url(' + img2 + ')' }}>
-                        <span>Send Bulk Messages</span>
+                        <span>Send Bulk SMS</span>
                     </div>
                     <form onSubmit={handleSubmit} className="contact100-form validate-form">
                         {/* <div className="checkInput">
