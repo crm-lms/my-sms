@@ -550,12 +550,6 @@ textarea.input100 {
     opacity: 1
 }
 
-.uploadAlert {
-    color: #ccc;
-    margin-top: -2.4em;
-    margin-bottom: 0.8em;
-}
-
 .check {
     width: 12em;
     font-size: 0.8em;
@@ -607,5 +601,23 @@ input[type="checkbox"]::before {
     width: 100%;
     position: relative;
     border-radius: 2px;
-    margin-bottom: 15px;
 }
+
+.uploadAlert {
+    color: #c1c1c1;
+    margin-top: -2.4em;
+    margin-bottom: 0.8em;
+    margin-right: 2.6em;
+}
+
+@media (min-width: 1200px) {
+    .uploadAlert {
+        margin-right: 5.4em;
+    }
+  }
+  
+  @media (max-width: 1199.98px) {
+    .uploadAlert {
+        margin-right: 0.9em;
+    }
+  }
