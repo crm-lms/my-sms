@@ -607,7 +607,7 @@ input[type="checkbox"]::before {
     color: #c1c1c1;
     margin-top: -2.4em;
     margin-bottom: 0.8em;
-    margin-right: 2.6em;
+    margin-right: 2em;
 }
 
 @media (min-width: 1200px) {
