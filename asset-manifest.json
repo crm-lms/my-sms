@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/my-sms/static/css/main.d878f243.css",
+    "main.css": "/my-sms/static/css/main.3fee9d13.css",
     "main.js": "/my-sms/static/js/main.f682f31c.js",
     "static/js/787.abd1891b.chunk.js": "/my-sms/static/js/787.abd1891b.chunk.js",
     "static/media/fontawesome-webfont3e6e.svg?v=4.7.0": "/my-sms/static/media/fontawesome-webfont3e6e.c1e38fd9e0e74ba58f7a.svg",
@@ -19,12 +19,12 @@
     "static/media/favicon.ico": "/my-sms/static/media/favicon.6599c5b76058a7bbfdd5.ico",
     "static/media/bg-02.jpg": "/my-sms/static/media/bg-02.c81770366307f0079a00.jpg",
     "index.html": "/my-sms/index.html",
-    "main.d878f243.css.map": "/my-sms/static/css/main.d878f243.css.map",
+    "main.3fee9d13.css.map": "/my-sms/static/css/main.3fee9d13.css.map",
     "main.f682f31c.js.map": "/my-sms/static/js/main.f682f31c.js.map",
     "787.abd1891b.chunk.js.map": "/my-sms/static/js/787.abd1891b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d878f243.css",
+    "static/css/main.3fee9d13.css",
     "static/js/main.f682f31c.js"
   ]
 }
