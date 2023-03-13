@@ -99,8 +99,10 @@ function App() {
                     let url = "http://localhost:5081/api/CRM/GetLogin?";
                     let email = "email=" + username;
                     let passwords = "&password=" + password;
+                    alert(url);
                     fetch(url + email + passwords).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
                     const LoginData = JSON.parse(localStorage.getItem('LoginData'));
+                    alert(LoginData.isSelected);
                     if (LoginData.isSelected == true) {
                         window.location.href = "SendMessage";
                     } else {
