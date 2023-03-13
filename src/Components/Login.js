@@ -10,11 +10,11 @@ import "./fonts/iconic/css/material-design-iconic-font.min.css";
 import "./fonts/Linearicons-Free-v1.0.0/icon-font.min.css";
 import "./css/main.css";
 import "./css/util.css";
+import validator from 'validator'
 
 function App() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [user, setUser] = useState("");
 
     let HideMsgPopup = () => {
         $('.container-contact100').fadeOut(300);
@@ -88,27 +88,34 @@ function App() {
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if (username === "" || password === "") {
+            if (username === "" || password === "") 
+            {
                 checkValid();
             }
-            else {
-                let url = "http://localhost:5081/api/CRM/GetLogin?";
-                let email = "email=" + username;
-                let passwords = "&password=" + password;
-                fetch(url + email + passwords).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
-                const LoginData = JSON.parse(localStorage.getItem('LoginData'));
-                if (LoginData.isSelected == true) {
-                    
-                    window.location.href="SendMessage";
-                    
-                } else {
-                    localStorage.setItem('LoginData', null);
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Email and Password is wrong!',
-                        footer: 'Please try again.'
-                    })
+            else 
+            {
+                if (validator.isEmail(username)) 
+                {
+                    let url = "http://localhost:5081/api/CRM/GetLogin?";
+                    let email = "email=" + username;
+                    let passwords = "&password=" + password;
+                    fetch(url + email + passwords).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
+                    const LoginData = JSON.parse(localStorage.getItem('LoginData'));
+                    if (LoginData.isSelected == true) {
+                        window.location.href = "SendMessage";
+                    } else {
+                        localStorage.setItem('LoginData', null);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Email and Password is wrong!',
+                            footer: 'Please try again.'
+                        })
+                    }
+                } 
+                else 
+                {
+                    checkValid();
                 }
             }
         } catch (err) {
@@ -139,12 +146,12 @@ function App() {
                         <span>Login</span>
                     </div>
                     <form onSubmit={handleSubmit} className="contact100-form validate-form">
-                        
+
                         <div className="wrap-input100 validate-input">
-                            <input type="text" id="email" className="input100" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="example@email.com" value={username} onChange={(e) => setUserName(e.target.value)} autoComplete="off"></input>
+                            <input type="text" id="email" className="input100" name="email" placeholder="example@email.com" value={username} onChange={(e) => setUserName(e.target.value)} autoComplete="off"></input>
                             <span className="focus-input100"></span>
                             <label className="label-input100" for="email">
-                                <span className="lnr lnr-user m-b-5"></span>
+                                <span className="lnr lnr-envelope m-b-5"></span>
                             </label>
                         </div>
 
@@ -158,7 +165,7 @@ function App() {
                         <p className="text">Don't have an account? <a href="/my-sms/Register"> Register</a></p>
                         <div className="container-contact100-form-btn">
                             <button className="contact100-form-btn">
-                                 Login
+                                Login
                             </button>
                         </div>
                     </form>

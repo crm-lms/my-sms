@@ -3,6 +3,7 @@ import img1 from "./images/bg-01.jpg";
 import img2 from "./images/bg-02.jpg";
 import $ from "jquery";
 import Swal from "sweetalert2"; //npm install --save sweetalert2
+import validator from 'validator'
 import "./images/icons/favicon.ico";
 import "./vendor/bootstrap/css/bootstrap.min.css";
 import "./fonts/font-awesome-4.7.0/css/font-awesome.min.css";
@@ -98,29 +99,33 @@ function App() {
                 checkValid();
             }
             else {
+                if (validator.isEmail(username)) {
+                    let url = "http://localhost:5081/api/CRM/UserRegister?";
+                    let businessName = "businessName=" + username;
+                    let Email = "&Email=" + email;
+                    let passwords = "&password=" + password;
+                    let mobile = "&mobile=" + contact;
+                    let addresses = "&address=" + address;
 
-                let url = "http://localhost:5081/api/CRM/UserRegister?";
-                let businessName = "businessName=" + username;
-                let Email = "&Email=" + email;
-                let passwords = "&password=" + password;
-                let mobile = "&mobile=" + contact;
-                let addresses = "&address=" + address;
+                    fetch(url + businessName + Email + passwords + mobile + addresses).then((res) => res.json()).then((json1) => { localStorage.setItem('RegisterData', JSON.stringify(json1)); })
+                    debugger
+                    const RegisterData = JSON.parse(localStorage.getItem('RegisterData'));
+                    debugger
+                    if (RegisterData.Email != "") {
+                        window.location.href = "Login";
 
-                fetch(url + businessName + Email + passwords + mobile + addresses).then((res) => res.json()).then((json1) => { localStorage.setItem('RegisterData', JSON.stringify(json1)); })
-                debugger
-                const RegisterData = JSON.parse(localStorage.getItem('RegisterData'));
-                debugger
-                if (RegisterData.Email != "") {
-                    window.location.href = "Login";
-
-                } else {
-                    localStorage.setItem('RegisterData', null);
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Oops...',
-                        text: 'Email and Password is wrong!',
-                        footer: 'Please try again.'
-                    })
+                    } else {
+                        localStorage.setItem('RegisterData', null);
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Oops...',
+                            text: 'Email and Password is wrong!',
+                            footer: 'Please try again.'
+                        })
+                    }
+                }
+                else {
+                    checkValid();
                 }
             }
         } catch (err) {
@@ -162,7 +167,7 @@ function App() {
                             </label>
                         </div>
                         <div className="wrap-input100 validate-input">
-                            <input type="text" id="email" className="input100" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="example@email.com" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="off"></input>
+                            <input type="text" id="email" className="input100" name="email" placeholder="example@email.com" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="off"></input>
                             <span className="focus-input100"></span>
                             <label className="label-input100" for="email">
                                 <span className="lnr lnr-envelope m-b-5"></span>
