@@ -1,4 +1,9 @@
 import { useState } from "react";
+import img1 from "./images/bg-01.jpg";
+import img2 from "./images/bg-02.jpg";
+import $ from "jquery";
+import { read, utils, writeFile } from 'xlsx'; //npm i xlsx
+import Swal from "sweetalert2"; //npm install --save sweetalert2
 import "./images/icons/favicon.ico";
 import "./vendor/bootstrap/css/bootstrap.min.css";
 import "./fonts/font-awesome-4.7.0/css/font-awesome.min.css";
@@ -6,11 +11,6 @@ import "./fonts/iconic/css/material-design-iconic-font.min.css";
 import "./fonts/Linearicons-Free-v1.0.0/icon-font.min.css";
 import "./css/main.css";
 import "./css/util.css";
-import img1 from "./images/bg-01.jpg";
-import img2 from "./images/bg-02.jpg";
-import $ from "jquery";
-import { read, utils, writeFile } from 'xlsx'; //npm i xlsx
-import Swal from "sweetalert2"; //npm install --save sweetalert2
 
 function App() {
     const [From, setFrom] = useState("");
@@ -123,7 +123,7 @@ function App() {
             $(thisAlert).find('.btn-hide-validate').remove();
         }
     }
-    
+
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -167,6 +167,10 @@ function App() {
     //     setCheckBox(false);
     //     alert(CheckBox);
     // }
+    let LoginPage = () => {
+        window.location.href = "Login";
+    }
+    const LoginData = JSON.parse(localStorage.getItem('LoginData'));
 
     return (
         <div className="App">
@@ -177,20 +181,27 @@ function App() {
                     </a>
                     <div>
                         <button className="btn-show-contact100" onClick={ShowMsgPopup}>
-                        <span className="lnr lnr-location mr-1"></span> Send Message
+                            <span className="lnr lnr-location mr-1"></span> Send Message
                         </button>
                     </div>
                 </div>
             </div>
             <div className="container-contact100">
                 <div className="wrap-contact100">
+                    <button className="logout-contact100" onClick={LoginPage}>
+                        <span class="lnr lnr-exit-up"></span> Sign Out
+                    </button>
                     <button className="btn-hide-contact100" onClick={HideMsgPopup}>
                         <i className="zmdi zmdi-close"></i>
                     </button>
                     <div className="contact100-form-title" style={{ backgroundImage: 'url(' + img2 + ')' }}>
                         <span>Send Bulk SMS</span>
                     </div>
+                    <div className="welcome welcome-1">
+                        <span>Well-Come: {LoginData.BusinessName}</span>
+                    </div>
                     <form onSubmit={handleSubmit} className="contact100-form validate-form">
+
                         {/* <div className="checkInput">
                             <label class="form-control-126">
                                 <input type="checkbox" name="checkbox-checkmark" value={CheckBox} onChange={CheckBoxChange}/>

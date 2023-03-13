@@ -550,6 +550,38 @@ textarea.input100 {
     opacity: 1
 }
 
+.left-arrow-hide-contact100 {
+    font-size: 30px;
+    color: #fff;
+    opacity: .6;
+    position: absolute;
+    left: 0;
+    top: -44px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s
+}
+
+.left-arrow-hide-contact100:hover {
+    opacity: 1
+}
+
+.logout-contact100 {
+    font-size: 20px;
+    color: #fff;
+    opacity: .6;
+    position: absolute;
+    left: 0;
+    top: -36px;
+    transition: all .4s;
+}
+
+.logout-contact100:hover {
+    opacity: 1
+}
+
+
 .check {
     width: 12em;
     font-size: 0.8em;
@@ -614,10 +646,48 @@ input[type="checkbox"]::before {
     .uploadAlert {
         margin-right: 8em;
     }
-  }
+}
+
 /*   
   @media (max-width: 1199.98px) {
     .uploadAlert {
         margin-right: 0em;
     }
   } */
+
+.welcome {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-1 {
+    color: hsl(0, 0%, 28%);
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Montserrat-Bold';
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.welcome-1 {
+    background: linear-gradient(to right, hsl(0, 0%, 30%) 0, hsl(0, 0%, 100%) 10%, hsl(0, 0%, 30%) 20%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0;
+    }
+
+    60% {
+        background-position: 600px;
+    }
+
+    100% {
+        background-position: 600px;
+    }
+}
