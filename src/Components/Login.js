@@ -101,6 +101,7 @@ function App() {
                     let passwords = "&password=" + password;
                     alert(url);
                     fetch(url + email + passwords).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
+                    alert(1);
                     const LoginData = JSON.parse(localStorage.getItem('LoginData'));
                     alert(LoginData.isSelected);
                     if (LoginData.isSelected == true) {
