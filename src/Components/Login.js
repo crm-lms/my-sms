@@ -101,10 +101,12 @@ function App() {
                     let passwords = "&password=" + password;
                     alert(url);
                     fetch(url + email + passwords).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
-                    alert(1);
+                    alert(JSON.parse(localStorage.getItem('LoginData')));
                     const LoginData = JSON.parse(localStorage.getItem('LoginData'));
+                    alert(2);
                     alert(LoginData.isSelected);
                     if (LoginData.isSelected == true) {
+                        alert(1);
                         window.location.href = "SendMessage";
                     } else {
                         localStorage.setItem('LoginData', null);
