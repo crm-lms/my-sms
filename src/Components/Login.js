@@ -19,7 +19,7 @@ function App() {
     let HideMsgPopup = () => {
         $('.container-contact100').fadeOut(300);
     }
-    
+
     let ShowMsgPopup = () => {
         $('.container-contact100').fadeIn(300);
     }
@@ -88,32 +88,28 @@ function App() {
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            if (username === "" || password === "") 
-            {
+            if (username === "" || password === "") {
                 checkValid();
             }
-            else 
-            {
-                if (validator.isEmail(username)) 
-                {
+            else {
+                if (validator.isEmail(username)) {
 
                     let headers = new Headers();
 
                     headers.append('Content-Type', 'application/json');
                     headers.append('Accept', 'application/json');
                     headers.append('Access-Control-Allow-Origin', '*');
-                    headers.append('Origin', 'http://localhost:5081');   
+                    headers.append('Origin', 'http://localhost:5081');
 
                     let url = "http://localhost:5081/api/CRM/GetLogin?";
                     let email = "email=" + username;
                     let passwords = "&password=" + password;
                     alert(url);
-                    fetch(url + email + passwords, {method: 'GET', headers: headers}).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
+                    fetch(url + email + passwords, { method: 'GET', headers: headers }).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
                     alert(JSON.parse(localStorage.getItem('LoginData')));
                     const LoginData = JSON.parse(localStorage.getItem('LoginData'));
                     alert(2);
-                    alert(LoginData.isSelected);
-                    if (LoginData.isSelected == true) {
+                    if (LoginData != null && LoginData.isSelected == true) {
                         alert(1);
                         window.location.href = "SendMessage";
                     } else {
@@ -125,9 +121,8 @@ function App() {
                             footer: 'Please try again.'
                         })
                     }
-                } 
-                else 
-                {
+                }
+                else {
                     checkValid();
                 }
             }
