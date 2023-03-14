@@ -95,24 +95,11 @@ function App() {
             else {
                 if (validator.isEmail(username)) {
 
-                    let headers = new Headers();
-
-                    headers.append('Content-Type', 'application/json');
-                    headers.append('Accept', 'application/json');
-                    headers.append('Access-Control-Allow-Origin', '*');
-                    headers.append('Origin', 'http://localhost:5081');
-
                     let url = "http://localhost:5081/api/CRM/GetLogin?";
                     let email = "email=" + username;
                     let passwords = "&password=" + password;
-                    debugger
-                    fetch(url + email + passwords, { method: 'GET', headers: headers }).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
-                    debugger
+                    fetch(url + email + passwords).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
                     const LoginData = JSON.parse(localStorage.getItem('LoginData'));
-                    debugger
-                    console.log(LoginData)
-                    alert(LoginData);
-
                     if (LoginData != null && LoginData.isSelected == true) {
                         window.location.href = "SendMessage";
                     } else {
