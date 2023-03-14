@@ -96,11 +96,19 @@ function App() {
             {
                 if (validator.isEmail(username)) 
                 {
+
+                    let headers = new Headers();
+
+                    headers.append('Content-Type', 'application/json');
+                    headers.append('Accept', 'application/json');
+                    headers.append('Access-Control-Allow-Origin', '*');
+                    headers.append('Origin', 'http://localhost:5081');   
+
                     let url = "http://localhost:5081/api/CRM/GetLogin?";
                     let email = "email=" + username;
                     let passwords = "&password=" + password;
                     alert(url);
-                    fetch(url + email + passwords, {method: 'GET'}).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
+                    fetch(url + email + passwords, {method: 'GET', headers: headers}).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
                     alert(JSON.parse(localStorage.getItem('LoginData')));
                     const LoginData = JSON.parse(localStorage.getItem('LoginData'));
                     alert(2);
