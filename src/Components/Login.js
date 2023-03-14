@@ -11,6 +11,7 @@ import "./fonts/Linearicons-Free-v1.0.0/icon-font.min.css";
 import "./css/main.css";
 import "./css/util.css";
 import validator from 'validator'
+import request from "../../node_modules/superagent/dist/superagent";
 
 function App() {
     const [username, setUserName] = useState("");
@@ -104,13 +105,15 @@ function App() {
                     let url = "http://localhost:5081/api/CRM/GetLogin?";
                     let email = "email=" + username;
                     let passwords = "&password=" + password;
-                    alert(url);
+                    debugger
                     fetch(url + email + passwords, { method: 'GET', headers: headers }).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
-                    alert(JSON.parse(localStorage.getItem('LoginData')));
+                    debugger
                     const LoginData = JSON.parse(localStorage.getItem('LoginData'));
-                    alert(2);
+                    debugger
+                    console.log(LoginData)
+                    alert(LoginData);
+
                     if (LoginData != null && LoginData.isSelected == true) {
-                        alert(1);
                         window.location.href = "SendMessage";
                     } else {
                         localStorage.setItem('LoginData', null);
