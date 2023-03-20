@@ -3,7 +3,6 @@ import img1 from "./images/bg-01.jpg";
 import img2 from "./images/bg-02.jpg";
 import $ from "jquery";
 import { read, utils, writeFile } from 'xlsx'; //npm i xlsx
-import Swal from "sweetalert2"; //npm install --save sweetalert2
 import "./images/icons/favicon.ico";
 import "./vendor/bootstrap/css/bootstrap.min.css";
 import "./fonts/font-awesome-4.7.0/css/font-awesome.min.css";

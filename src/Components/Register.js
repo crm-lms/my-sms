@@ -2,7 +2,6 @@ import { useState } from "react";
 import img1 from "./images/bg-01.jpg";
 import img2 from "./images/bg-02.jpg";
 import $ from "jquery";
-import Swal from "sweetalert2"; //npm install --save sweetalert2
 import validator from 'validator'
 import "./images/icons/favicon.ico";
 import "./vendor/bootstrap/css/bootstrap.min.css";
@@ -11,6 +10,8 @@ import "./fonts/iconic/css/material-design-iconic-font.min.css";
 import "./fonts/Linearicons-Free-v1.0.0/icon-font.min.css";
 import "./css/main.css";
 import "./css/util.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     const [username, setUserName] = useState("");
@@ -116,12 +117,7 @@ function App() {
 
                     } else {
                         localStorage.setItem('RegisterData', null);
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'Oops...',
-                            text: 'Email and Password is wrong!',
-                            footer: 'Please try again.'
-                        })
+                        toast('Email and Password is wrong!');
                     }
                 }
                 else {
@@ -202,6 +198,7 @@ function App() {
                                 Register
                             </button>
                         </div>
+                        <ToastContainer />
                     </form>
                 </div>
             </div>
