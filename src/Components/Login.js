@@ -108,6 +108,7 @@ function App() {
                         
                         toast.warning('Email and Password is wrong!', {
                             position: toast.POSITION.TOP_CENTER
+                            //position: toast.POSITION.BOTTOM_CENTER
                         });
 
                         // toast.success('Email and Password is wrong!', {
