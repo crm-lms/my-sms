@@ -107,17 +107,16 @@ function App() {
                     let passwords = "&password=" + password;
                     let mobile = "&mobile=" + contact;
                     let addresses = "&address=" + address;
-
                     fetch(url + businessName + Email + passwords + mobile + addresses).then((res) => res.json()).then((json1) => { localStorage.setItem('RegisterData', JSON.stringify(json1)); })
-                    debugger
                     const RegisterData = JSON.parse(localStorage.getItem('RegisterData'));
-                    debugger
                     if (RegisterData.Email != "") {
                         window.location.href = "Login";
 
                     } else {
                         localStorage.setItem('RegisterData', null);
-                        toast('Email and Password is wrong!');
+                        toast.warning('Email and Password is wrong!', {
+                            position: toast.POSITION.TOP_CENTER
+                        });
                     }
                 }
                 else {

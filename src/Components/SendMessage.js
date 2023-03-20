@@ -31,7 +31,9 @@ function App() {
                 if (sheets.length) {
                     const rows = utils.sheet_to_json(wb.Sheets[sheets[0]]);
                     setMovies(rows);
-                    toast("File uploaded successfully!");
+                    toast.success('File uploaded successfully!', {
+                        position: toast.POSITION.TOP_CENTER
+                    });
                     setuploadAlert(" File uploaded successfully");
                     localStorage.setItem('FileData', JSON.stringify(rows));
                 }
@@ -39,7 +41,9 @@ function App() {
             reader.readAsArrayBuffer(file);
         }
         else {
-            toast('You have invalid file uploaded, Please upload xlsx, xls or csv file.')
+            toast.warning('You have invalid file uploaded, Please upload xlsx, xls or csv file.', {
+                position: toast.POSITION.TOP_CENTER
+            });
             localStorage.setItem('FileData', null);
             setTimeout(() => { window.location.reload(); }, 2000);
         }
@@ -133,10 +137,14 @@ function App() {
                 if (res.status === 200 && resJson != null) {
                     setFrom("");
                     setMessageSend("");
-                    toast('Message Send Successfully.');
+                    toast.success('Message Send Successfully.', {
+                        position: toast.POSITION.TOP_CENTER
+                    });
                     localStorage.clear();
                 } else {
-                    toast('Message Not Send Successfully.');
+                    toast.error('Message Not Send Successfully.', {
+                        position: toast.POSITION.TOP_CENTER
+                    });
                 }
             }
         } catch (err) {

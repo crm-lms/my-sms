@@ -16,8 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     const [username, setUserName] = useState("");
-    const [password, setPassword] = useState("");
-    
+    const [password, setPassword] = useState("");    
 
     let HideMsgPopup = () => {
         $('.container-contact100').fadeOut(300);
@@ -106,7 +105,22 @@ function App() {
                         window.location.href = "SendMessage";
                     } else {
                         localStorage.setItem('LoginData', null);
-                        toast("Email and Password is wrong!");
+                        
+                        toast.warning('Email and Password is wrong!', {
+                            position: toast.POSITION.TOP_CENTER
+                        });
+
+                        // toast.success('Email and Password is wrong!', {
+                        //     position: toast.POSITION.TOP_CENTER
+                        // });
+
+                        // toast.info('Email and Password is wrong!', {
+                        //     position: toast.POSITION.TOP_CENTER
+                        // });
+
+                        // toast.error('Email and Password is wrong!', {
+                        //     position: toast.POSITION.TOP_CENTER
+                        // });
                     }
                 }
                 else {
