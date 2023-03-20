@@ -11,6 +11,8 @@ import "./fonts/iconic/css/material-design-iconic-font.min.css";
 import "./fonts/Linearicons-Free-v1.0.0/icon-font.min.css";
 import "./css/main.css";
 import "./css/util.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     const [From, setFrom] = useState("");
@@ -30,11 +32,7 @@ function App() {
                 if (sheets.length) {
                     const rows = utils.sheet_to_json(wb.Sheets[sheets[0]]);
                     setMovies(rows);
-                    Swal.fire(
-                        'Congrats!',
-                        'File uploaded successfully!',
-                        'success'
-                    )
+                    toast("File uploaded successfully!");
                     setuploadAlert(" File uploaded successfully");
                     localStorage.setItem('FileData', JSON.stringify(rows));
                 }
@@ -42,15 +40,8 @@ function App() {
             reader.readAsArrayBuffer(file);
         }
         else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'You have invalid file uploaded!',
-                footer: 'Please upload xlsx, xls or csv file.'
-            })
-
+            toast('You have invalid file uploaded, Please upload xlsx, xls or csv file.')
             localStorage.setItem('FileData', null);
-            $('.swal2-actions').hide();
             setTimeout(() => { window.location.reload(); }, 2000);
         }
     }
@@ -134,7 +125,7 @@ function App() {
             else {
                 const numbers = [];
                 FileData.forEach((data) => { numbers.push(data.Number); })
-                let url = "http://localhost:5098/api/Sms/SendSms?";
+                let url = "http://localhost:5081/api/CRMSendMessage/SendSmsTwilio?";
                 let to = "To=" + numbers;
                 let from = "&From=" + From;
                 let message = "&Message=" + messageSend;
@@ -143,19 +134,10 @@ function App() {
                 if (res.status === 200 && resJson != null) {
                     setFrom("");
                     setMessageSend("");
-                    Swal.fire(
-                        'Congrats!',
-                        'Send messages successfully!',
-                        'success'
-                    )
+                    toast('Message Send Successfully.');
                     localStorage.clear();
                 } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Not send!',
-                        footer: 'Please try again.'
-                    })
+                    toast('Message Not Send Successfully.');
                 }
             }
         } catch (err) {
@@ -242,6 +224,7 @@ function App() {
                                 <span className="lnr lnr-location mr-2"></span> Send Now
                             </button>
                         </div>
+                        <ToastContainer />
                     </form>
                 </div>
             </div>

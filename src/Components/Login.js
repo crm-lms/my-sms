@@ -11,11 +11,13 @@ import "./fonts/Linearicons-Free-v1.0.0/icon-font.min.css";
 import "./css/main.css";
 import "./css/util.css";
 import validator from 'validator'
-import request from "../../node_modules/superagent/dist/superagent";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
+    
 
     let HideMsgPopup = () => {
         $('.container-contact100').fadeOut(300);
@@ -94,22 +96,17 @@ function App() {
             }
             else {
                 if (validator.isEmail(username)) {
-
                     let url = "http://localhost:5081/api/CRM/GetLogin?";
                     let email = "email=" + username;
                     let passwords = "&password=" + password;
                     fetch(url + email + passwords).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })
                     const LoginData = JSON.parse(localStorage.getItem('LoginData'));
                     if (LoginData != null && LoginData.isSelected == true) {
+                        localStorage.setItem('LoginData', null);
                         window.location.href = "SendMessage";
                     } else {
                         localStorage.setItem('LoginData', null);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Oops...',
-                            text: 'Email and Password is wrong!',
-                            footer: 'Please try again.'
-                        })
+                        toast("Email and Password is wrong!");
                     }
                 }
                 else {
@@ -166,6 +163,7 @@ function App() {
                                 Login
                             </button>
                         </div>
+                        <ToastContainer />
                     </form>
                 </div>
             </div>
