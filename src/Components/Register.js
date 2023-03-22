@@ -132,14 +132,12 @@ function App() {
         <div className="App">
             <div className="bg-container-contact100" style={{ backgroundImage: 'url(' + img1 + ')' }}>
                 <div className="contact100-header flex-sb-m">
-                    <div>
-                        <a href="#" className="contact100-header-logo">
-                            <img src="https://icons.iconarchive.com/icons/fa-team/fontawesome/128/FontAwesome-Comment-Sms-icon.png" alt="LOGO"></img>
-                        </a>
-                        <button className="btn-show-contact100" onClick={ShowMsgPopup}>
-                            Register
-                        </button>
-                    </div>
+                    <a href="#" className="contact100-header-logo">
+                        <img src="https://icons.iconarchive.com/icons/fa-team/fontawesome/128/FontAwesome-Comment-Sms-icon.png" alt="LOGO"></img>
+                    </a>
+                    <button className="btn-show-contact100" onClick={ShowMsgPopup}>
+                        Register
+                    </button>
                 </div>
             </div>
             <div className="container-contact100">

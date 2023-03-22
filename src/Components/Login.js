@@ -16,7 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     const [username, setUserName] = useState("");
-    const [password, setPassword] = useState("");    
+    const [password, setPassword] = useState("");
 
     let HideMsgPopup = () => {
         $('.container-contact100').fadeOut(300);
@@ -105,7 +105,7 @@ function App() {
                         window.location.href = "SendMessage";
                     } else {
                         localStorage.setItem('LoginData', null);
-                        
+
                         toast.warning('Email and Password is wrong!', {
                             position: toast.POSITION.TOP_CENTER
                             //position: toast.POSITION.BOTTOM_CENTER
@@ -140,11 +140,9 @@ function App() {
                     <a href="#" className="contact100-header-logo">
                         <img src="https://icons.iconarchive.com/icons/fa-team/fontawesome/128/FontAwesome-Comment-Sms-icon.png" alt="LOGO"></img>
                     </a>
-                    <div>
-                        <button className="btn-show-contact100" onClick={ShowMsgPopup}>
-                            Login
-                        </button>
-                    </div>
+                    <button className="btn-show-contact100" onClick={ShowMsgPopup}>
+                        Login
+                    </button>
                 </div>
             </div>
             <div className="container-contact100">

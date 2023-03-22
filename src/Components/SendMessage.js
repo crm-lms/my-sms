@@ -168,11 +168,9 @@ function App() {
                     <a href="#" className="contact100-header-logo">
                         <img src="https://icons.iconarchive.com/icons/fa-team/fontawesome/128/FontAwesome-Comment-Sms-icon.png" alt="LOGO"></img>
                     </a>
-                    <div>
-                        <button className="btn-show-contact100" onClick={ShowMsgPopup}>
-                            <span className="lnr lnr-location mr-1"></span> Send Message
-                        </button>
-                    </div>
+                    <button className="btn-show-contact100" onClick={ShowMsgPopup}>
+                        <span className="lnr lnr-location mr-1"></span> Send Message
+                    </button>
                 </div>
             </div>
             <div className="container-contact100">
