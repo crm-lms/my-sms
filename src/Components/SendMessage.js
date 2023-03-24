@@ -128,7 +128,7 @@ function App() {
             else {
                 const numbers = [];
                 FileData.forEach((data) => { numbers.push(data.Number); })
-                let url = "http://localhost:5081/api/CRMSendMessage/SendSmsTwilio?";
+                let url = "https://localhost:7141/api/CRMSendMessage/SendSmsTwilio?";
                 let to = "To=" + numbers;
                 let from = "&From=" + From;
                 let message = "&Message=" + messageSend;

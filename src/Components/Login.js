@@ -95,7 +95,7 @@ function App() {
             }
             else {
                 if (validator.isEmail(username)) {
-                    let url = "http://localhost:5081/api/CRM/GetLogin?";
+                    let url = "https://localhost:7141/api/CRM/GetLogin?";
                     let email = "email=" + username;
                     let passwords = "&password=" + password;
                     fetch(url + email + passwords).then((res) => res.json()).then((json1) => { localStorage.setItem('LoginData', JSON.stringify(json1)); })

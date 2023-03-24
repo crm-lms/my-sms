@@ -101,7 +101,7 @@ function App() {
             }
             else {
                 if (validator.isEmail(username)) {
-                    let url = "http://localhost:5081/api/CRM/UserRegister?";
+                    let url = "https://localhost:7141/api/CRM/UserRegister?";
                     let businessName = "businessName=" + username;
                     let Email = "&Email=" + email;
                     let passwords = "&password=" + password;
