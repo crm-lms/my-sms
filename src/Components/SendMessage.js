@@ -157,6 +157,7 @@ function App() {
     //     alert(CheckBox);
     // }
     let LoginPage = () => {
+        localStorage.setItem('LoginData', null);
         window.location.href = "Login";
     }
     const LoginData = JSON.parse(localStorage.getItem('LoginData'));

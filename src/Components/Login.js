@@ -94,7 +94,7 @@ function App() {
                 checkValid();
             }
             else {
-                if (validator.isEmail(username)) {
+                if (validator.isEmail(username)) {                    
                     let url = "https://localhost:7141/api/CRM/GetLogin?";
                     let email = "email=" + username;
                     let passwords = "&password=" + password;
@@ -105,7 +105,6 @@ function App() {
                         window.location.href = "SendMessage";
                     } else {
                         localStorage.setItem('LoginData', null);
-
                         toast.warning('Email and Password is wrong!', {
                             position: toast.POSITION.TOP_CENTER
                             //position: toast.POSITION.BOTTOM_CENTER
